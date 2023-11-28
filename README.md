@@ -19,6 +19,24 @@ https://github.com/zcczhang/UVD/assets/52727818/5555b99a-76eb-4d76-966f-787af763
 
 </div>
 
+# Notes for This Fork
+
+Tested on python3.9, ubuntu 18.04, cuda 11.3. 
+
+Tested LIV + UVD. For LIV, after installation, run the following code to fix torch
+```bash
+# had to downgrade torch for my system that has cuda 11.3
+pip uninstall torch torchaudio torchvision
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
+
+# install chardet if needed
+pip install chardet
+```
+
+I have updated `requirements.txt` to avoid reinstalling torch after installing LIV.
+
+I have added `scripts/decompose_video.py`. 
+
 # Installation
 
 - Follow the [instruction](https://github.com/openai/mujoco-py#install-mujoco) for installing `mujuco-py` and install the following apt packages if using Ubuntu:
@@ -90,7 +108,7 @@ cd eai-vc && pip install -e vc_models
 <a href="https://github.com/facebookresearch/dinov2">DINOv2</a> and <a href="https://pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html">ResNet</a> pretrained with ImageNet-1k are directly loaded via <a href="https://pytorch.org/hub/">torch hub</a> and <a href="https://pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html">torchvision</a>.
 </summary></details>
 
-- Under *this* UVD repo directory, install other dependencies
+- Under *this* UVD repo directory, install other dependencies.
 ```commandline
 pip install -e .
 ```

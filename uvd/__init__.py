@@ -14,7 +14,7 @@ def get_uvd_subgoals(
     preprocessor_name: Literal["vip", "r3m", "liv", "clip", "vc1", "dinov2"] = "vip",
     device: torch.device | str | None = "cuda",
     return_indices: bool = False,
-) -> list | np.ndarray:
+):
     """Quick API for UVD decomposition."""
     if isinstance(frames, str):
         from decord import VideoReader
@@ -26,5 +26,5 @@ def get_uvd_subgoals(
     _, decomp_meta = decomp_trajectories("embed", rep)
     indices = decomp_meta.milestone_indices
     if return_indices:
-        return indices
+        return indices, frames
     return frames[indices]
