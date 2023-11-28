@@ -23,7 +23,7 @@ https://github.com/zcczhang/UVD/assets/52727818/5555b99a-76eb-4d76-966f-787af763
 
 Tested on python3.9, ubuntu 18.04, cuda 11.3. 
 
-Tested LIV + UVD. For LIV, after installation, run the following code to fix torch
+Tested LIV and DINOv2. DINOv2 doesn't need additional dependencies. For LIV, after installation, run the following code to fix torch
 ```bash
 # had to downgrade torch for my system that has cuda 11.3
 pip uninstall torch torchaudio torchvision
@@ -35,7 +35,7 @@ pip install chardet
 
 I have updated `requirements.txt` to avoid reinstalling torch after installing LIV.
 
-I have added `scripts/decompose_video.py`. 
+I have added `scripts/decompose_video.py`.
 
 # Installation
 
